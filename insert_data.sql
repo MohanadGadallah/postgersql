@@ -1,30 +1,29 @@
-begin;
+BEGIN;
 
-drop table if exists factbook;
+DROP TABLE IF EXISTS factbook;
 
-create table factbook
- (
-   year    int,
-   date    date,
-   shares  text,
-   trades  text,
-   dollars text
- );
+CREATE TABLE factbook (
+  year    int,
+  date    date,
+  shares  text,
+  trades  text,
+  dollars text
+);
 
--- datestyle of the database to ISO, MDY
-\copy factbook from '/usercode/factbook.csv' with delimiter E'\t' null ''
+\copy factbook FROM '/Users/mohanadgad/Desktop/postgersql/factbook.csv' WITH DELIMITER E'\t' NULL ''
 
-alter table factbook
-   alter shares
-    type bigint
-   using replace(shares, ',', '')::bigint,
+ALTER TABLE factbook
+  ALTER COLUMN shares TYPE bigint USING replace(shares, ',', '')::bigint;
 
-   alter trades
-    type bigint
-   using replace(trades, ',', '')::bigint,
-   
-   alter dollars
-    type bigint
-   using substring(replace(dollars, ',', '') from 2)::numeric;
+ALTER TABLE factbook
+  ALTER COLUMN trades TYPE bigint USING replace(trades, ',', '')::bigint;
 
-commit;
+ALTER TABLE factbook
+  ALTER COLUMN dollars TYPE numeric USING substring(replace(dollars, ',', '') from 2)::numeric;
+
+COMMIT;
+
+
+
+--- to import it ----
+-- psql -U your_username -d your_database -f insert_data.sql ----
