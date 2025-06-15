@@ -66,4 +66,4 @@ group by rollup(category, subcategory)
 ;
 
 
---------
+--------show client_encoding;
