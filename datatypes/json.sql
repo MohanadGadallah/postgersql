@@ -32,3 +32,17 @@ SELECT * FROM table_name WHERE jsonb_field['key'] = '"value"';
 
 
 
+/*
+
+
+8.14.6. Transforms
+
+Additional extensions are available that implement transforms for the jsonb type for different procedural languages.
+
+The extensions for PL/Perl are called jsonb_plperl and jsonb_plperlu. If you use them, jsonb values are mapped to Perl arrays, hashes, and scalars, as appropriate.
+
+The extension for PL/Python is called jsonb_plpython3u. If you use it, jsonb values are mapped to Python dictionaries, lists, and scalars, as appropriate.
+
+Of these extensions, jsonb_plperl is considered “trusted”, that is, it can be installed by non-superusers who have CREATE privilege on the current database. The rest require superuser privilege to install.
+
+*/
