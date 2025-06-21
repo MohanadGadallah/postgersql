@@ -56,3 +56,7 @@ SELECT * FROM cars;
 
 -- car_id  car_info
 -- 1       {"brand": "ferrari", "model": "testarosa"}
+
+
+
+select * from cars where car_info @>'{"brand":"ferrari"}'
