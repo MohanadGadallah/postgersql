@@ -74,3 +74,6 @@ select * from cars where car_info @>'{"brand":"ferrari"}'
 update cars set car_info='{"brand": "ford"}' where car_id=1;
 
 
+UPDATE cars 
+   SET car_info = car_info - 'model' 
+ WHERE car_id=4 
