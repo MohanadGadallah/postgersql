@@ -60,3 +60,17 @@ SELECT * FROM cars;
 
 
 select * from cars where car_info @>'{"brand":"ferrari"}'
+
+
+-- Task 3
+
+-- Update the record where car_id is 4 and remove the information of the model. Make sure you print the output using the returning clause.
+-- Expected output
+
+-- The output for task three looks like the following:
+-- car_id  car_info
+-- 4      {"brand": "ford"}
+
+update cars set car_info='{"brand": "ford"}' where car_id=1;
+
+
